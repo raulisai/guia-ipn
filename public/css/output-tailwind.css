@@ -6,6 +6,7 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
+    --color-gray-200: oklch(0.928 0.006 264.531);
     --color-white: #fff;
     --spacing: 0.25rem;
     --container-md: 28rem;
@@ -337,6 +338,8 @@
   }
   .p-8 {
     padding: calc(var(--spacing) * 8);
+  }
+
   }
   .px-4 {
     padding-inline: calc(var(--spacing) * 4);
