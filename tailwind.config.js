@@ -1,13 +1,14 @@
-/** @type {import('tailwindcss').Config} */
+/** @type {import('tailwindcss').config} */
 module.exports = {
-    content: [
-      "./public/**/*.html",
-      "./public/**/*.js"
-      // agrega más extensiones o rutas según tu proyecto
-    ],
+    content: ["./src/**/*.{html,js}"], // Rutas de tus archivos
     theme: {
-      extend: {},
+        extend: {
+            colors: {
+                'custom-teal': '#327995',
+                'custom-modal': '#0f172a8c',
+            }
+        },
     },
     plugins: [],
-  }
-  
+}
+
