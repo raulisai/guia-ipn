@@ -8,3 +8,6 @@ npm install
 
 # iniciar el compilador de tailwind 
 npm run watch:css
+
+## correr en desarrollo
+npm run dev
