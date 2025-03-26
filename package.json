@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:css": "npx @tailwindcss/cli -i ./src/input-tailwind.css -o ./public/css/output-tailwind.css",
-    "watch:css": "npx @tailwindcss/cli -i ./src/input-tailwind.css -o ./public/css/output-tailwind.css --watch"
+    "watch:css": "npx @tailwindcss/cli -i ./src/input-tailwind.css -o ./public/css/output-tailwind.css --watch",
+    "dev": "concurrently \"npm run watch:css\" \"live-server public/\""
 
   },
   "keywords": [],
