@@ -1,0 +1,19 @@
+{
+  "name": "guia-ipn",
+  "version": "1.0.0",
+  "description": "web interactiva de las guias de ingreso al instituto politecnico",
+  "main": "tailwind.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:css": "npx @tailwindcss/cli -i ./src/input-tailwind.css -o ./public/css/output-tailwind.css",
+    "watch:css": "npx @tailwindcss/cli -i ./src/input-tailwind.css -o ./public/css/output-tailwind.css --watch"
+
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.0.16",
+    "tailwindcss": "^4.0.16"
+  }
+}
