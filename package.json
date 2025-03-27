@@ -8,13 +8,13 @@
     "build:css": "npx @tailwindcss/cli -i ./src/input-tailwind.css -o ./public/css/output-tailwind.css",
     "watch:css": "npx @tailwindcss/cli -i ./src/input-tailwind.css -o ./public/css/output-tailwind.css --watch",
     "dev": "concurrently \"npm run watch:css\" \"live-server public/\""
-
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@tailwindcss/cli": "^4.0.16",
+    "openai": "^4.89.0",
     "tailwindcss": "^4.0.16"
   }
 }

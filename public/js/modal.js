@@ -25,6 +25,9 @@
         document.querySelectorAll('.card').forEach(card => {
             card.classList.remove('selected');
         });
+
+        enviarRespuesta('hello', 1)
+        console.log('enviarRespuesta')
         
         element.classList.add('selected');
         const content = element.querySelector('p').textContent;
