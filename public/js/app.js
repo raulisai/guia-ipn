@@ -1,15 +1,21 @@
-
-
-
-
-
+// Este archivo es parte principal de la aplicación web de Reactivos.
+// que utiliza la API de OpenAI para generar preguntas y respuestas.
 let reactivosfull = [];
 let reactivoActual = 'cuanto es 2+2';
 let idreactivoActual = 0;
 let respuestas = [];
 
-async function enviarRespuesta(pregunta, idCampoRespuesta) {
-    //const respuestaUsuario = document.getElementById(idCampoRespuesta).value;
+async function enviarRespuesta(pregunta, Respuesta) {
+    const respuestaUsuario = Respuesta;
+
+     // Construir prompt (ingeniería de prompt)
+     const prompt = `
+     El estudiante ha respondido  ${respuestaUsuario}
+     La pregunta era ${pregunta}
+     Explícale si está bien o mal y da la explicación de la respuesta correcta.
+   `;
+
+   console.log('prompt:', prompt);
   
     const urlAPI = "https://pqedqxmb2h.execute-api.us-east-2.amazonaws.com/ChatGpt";
 
@@ -17,7 +23,7 @@ async function enviarRespuesta(pregunta, idCampoRespuesta) {
       const response = await fetch(urlAPI, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ pregunta })
+        body: JSON.stringify({ "pregunta": prompt })
       });
 
       if (!response.ok) {
@@ -26,6 +32,7 @@ async function enviarRespuesta(pregunta, idCampoRespuesta) {
 
       const data = await response.json();
       console.log('resp:', data);
+      return data
 
       //document.getElementById("resultado").innerText = data.explicacion || data.error;
     } catch (error) {

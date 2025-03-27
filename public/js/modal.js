@@ -21,17 +21,21 @@
     }
 
     // Modificar la función toggleCard
-    function toggleCard(element) {
+    async function toggleCard(element) {
         document.querySelectorAll('.card').forEach(card => {
             card.classList.remove('selected');
         });
-
-        enviarRespuesta('hello', 1)
-        console.log('enviarRespuesta')
-        
         element.classList.add('selected');
         const content = element.querySelector('p').textContent;
-        openModal(content);
+        const question = document.getElementById('question').textContent;
+        try {
+            // Esperar a que enviarRespuesta devuelva el resultado
+            const explicacion = await enviarRespuesta(question, content);
+            openModal(explicacion);
+        } catch (error) {
+            console.error('Error al obtener la explicación:', error);
+            openModal('Hubo un error al obtener la explicación.');
+        }
     }
 
     // Cerrar modal al hacer click fuera
