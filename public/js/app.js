@@ -2,18 +2,13 @@
 // que utiliza la API de OpenAI para generar preguntas y respuestas.
 let reactivosfull = [];
 let reactivoActual = 'cuanto es 2+2';
-let idreactivoActual = 0;
+let idreactivoActual = 'exm2024V1Math04';
+let iscorrectQuestion = false;
 let respuestas = [];
 
 async function enviarRespuesta(pregunta, Respuesta) {
-    const respuestaUsuario = Respuesta;
-
-     // Construir prompt (ingeniería de prompt)
-     const prompt = `
-     El estudiante ha respondido  ${respuestaUsuario}
-     La pregunta era ${pregunta}
-     Explícale si está bien o mal y da la explicación de la respuesta correcta.
-   `;
+        // Construir prompt (ingeniería de prompt)
+     
 
    console.log('prompt:', prompt);
   
@@ -23,7 +18,14 @@ async function enviarRespuesta(pregunta, Respuesta) {
       const response = await fetch(urlAPI, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ "pregunta": prompt })
+        body: JSON.stringify({ 
+          "idreactivo": idreactivoActual,
+          "respuesta": Respuesta,
+          "isCorrect": iscorrectQuestion,
+          "pregunta": pregunta,
+
+
+        })
       });
 
       if (!response.ok) {
