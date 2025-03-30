@@ -6,11 +6,31 @@ let idreactivoActual = 'exm2024V1Math04';
 let iscorrectQuestion = false;
 let respuestas = [];
 
-async function enviarRespuesta(pregunta, Respuesta) {
-        // Construir prompt (ingeniería de prompt)
-     
 
-   console.log('prompt:', prompt);
+
+window.onload = async function() {
+
+  //iniciar id del dom par agregar la respuesta
+  let elementQuestion = document.getElementById('question');
+  let elementAnswerA = document.getElementById('response-a');
+  let elementAnswerB = document.getElementById('response-b');
+  let elementAnswerC = document.getElementById('response-c');
+  let elementAnswerD = document.getElementById('response-d');
+
+  let idRandom = Math.floor(Math.random() * 5);
+   console.log(reactivos[idRandom]);
+
+  //cargar reactivo
+  elementQuestion.innerHTML = reactivos[idRandom].pregunta;
+  elementAnswerA.innerHTML = reactivos[idRandom].opciones.a;
+  elementAnswerB.innerHTML = reactivos[idRandom].opciones.b;
+  elementAnswerC.innerHTML = reactivos[idRandom].opciones.c;
+  elementAnswerD.innerHTML = reactivos[idRandom].opciones.d;
+
+};
+
+
+async function enviarRespuesta(pregunta, Respuesta) {
   
     const urlAPI = "https://pqedqxmb2h.execute-api.us-east-2.amazonaws.com/ChatGpt";
 
@@ -42,23 +62,9 @@ async function enviarRespuesta(pregunta, Respuesta) {
     }
   }
 
-window.onload = async function() {
 
-  //iniciar id del dom par agregar la respuesta
-  let elementQuestion = document.getElementById('question');
-  let elementAnswerA = document.getElementById('response-a');
-  let elementAnswerB = document.getElementById('response-b');
-  let elementAnswerC = document.getElementById('response-c');
-  let elementAnswerD = document.getElementById('response-d');
-
-  let idRandom = Math.floor(Math.random() * 5);
-   console.log(reactivos[idRandom]);
-
-  //cargar reactivo
-  elementQuestion.innerHTML = reactivos[idRandom].pregunta;
-  elementAnswerA.innerHTML = reactivos[idRandom].opciones.a;
-  elementAnswerB.innerHTML = reactivos[idRandom].opciones.b;
-  elementAnswerC.innerHTML = reactivos[idRandom].opciones.c;
-  elementAnswerD.innerHTML = reactivos[idRandom].opciones.d;
-
-};
+  function nextQuestion() {
+    // Aquí puedes implementar la lógica para cargar la siguiente pregunta
+    // Por ejemplo, podrías incrementar un índice y cargar una nueva pregunta de un array
+    console.log('Cargando la siguiente pregunta...');
+  }
