@@ -4,7 +4,6 @@
     background-size: cover;
     background-position: center;
     background-blend-mode: multiply;
-    min-height: 100vh;
 }
 .menu-hidden {
     display: none;
