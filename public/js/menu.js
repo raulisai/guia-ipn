@@ -4,8 +4,8 @@
     const dropdownMenu = document.getElementById('dropdownMenu');
 
     menuBtn.addEventListener('click', () => {
-        dropdownMenu.classList.toggle('menu-visible');
         dropdownMenu.classList.toggle('menu-hidden');
+        dropdownMenu.classList.toggle('menu-visible');
     });
 
     // Cerrar menú al hacer click fuera
